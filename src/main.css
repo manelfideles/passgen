@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Overpass+Mono&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.page-container {
+    position: relative;
+    min-height: 100vh;
+    /* border: dashed; */
+}
+
+.header-title, .customize-title, .header-subtitle {
+    font-family: 'Work Sans', sans-serif;
+    color: #2D3748;
+}
+
+.header-description, .password-settings-wrapper {
+    font-family: 'Inter', sans-serif;
+    color: #718096;
+}
+
+button, input[type="range"], input[type="radio"], input[type="checkbox"] {
+    cursor: pointer;
+}
+
+header {
+    /* border-bottom: solid #48BB78 1px; */
+    /* height: 3.25em; */
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.logo {
+    /* border: solid; */
+    width: 5%;
+    margin: 0.5em 0;
+}
+
+.content {
+    /* border: solid; */
+    display: grid;
+    min-width: 30em;
+    margin: 2.75em 0.5em;
+    align-items: center;
+}
+
+.header-and-description {
+    /* border: solid; */
+    font-size: 1em;
+    text-align: center;
+}
+
+.header-subtitle {
+    /* border: solid; */
+    color: #48BB78;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    font-size: small;
+}
+
+.header-title {
+    /* border: solid; */
+    margin: 0.35em auto 0 auto;
+}
+
+.password-form-wrapper, .customize-password-wrapper {
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 3px 20px rgba(186, 189, 194, 0.5);
+    border-radius: 12px;
+    border: rgba(186, 189, 194, 0.5) solid 1px;
+    margin-top: 0.75em;
+    padding: 0 1.70em;
+}
+
+.password-form-wrapper {
+    display: flex;
+    padding: 0.4em;
+}
+
+.password-result {
+    /* border: dashed red; */
+    margin: 0.7em 0 0.7em 0;
+    width: 75%;
+    padding-left: 0.15rem;
+}
+
+.password-result-input, .password-result-input:focus {
+    outline: none;
+    border: none;
+    width: 97%;
+    padding-top: 0.3rem;
+
+    font-family: 'Overpass Mono', monospace;
+    font-size: 1.4rem;
+    color: #2D3748;
+}
+
+.password-form-icons {
+    border: none;
+    padding-top: 0.2rem;
+}
+
+.copy-btn, .generate-btn {
+    background: none;
+    border: none;
+    transform: scale(0.85);
+}
+
+.customize-title-wrapper {
+    /* border: solid; */
+    border-bottom: solid  rgba(186, 189, 194, 0.5)  1px;
+    padding-top: 1.5em;
+}
+
+.password-settings-wrapper {
+    /* border: solid black; */
+    margin-top: 1.75em;
+    display: block;
+}
+
+.length-input, .length-input:focus {
+    outline: none;
+    border: solid rgba(186, 189, 194, 0.3) 2px;
+    text-align: center;
+    border-radius: 7px;
+    margin-right: 1rem;
+    width: 4.25rem;
+    height: 2.75rem;
+    font-size: 1.2rem;
+    box-shadow: inset 0px 0px 5px 1px rgba(186, 189, 194, 0.25);
+    transition: all 0.3s ease-in-out;
+
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    color: #5e697a;
+}
+
+.length-input:focus {
+    border: solid #48BB78 2px;
+}
+
+.non-text-inputs-wrapper {
+    display: flex;
+    margin-top: 2.5em;
+    padding-bottom: 1.5em;
+}
+
+.radios {
+    margin-bottom: 1.25em;
+    margin-right: 8em;
+    /* border: solid; */
+}
+
+.checkboxes {
+    margin-bottom: 0.75em;
+}
+
+label {
+    font-size: 0.9em;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    /* border: solid black; */
+    width: 25px;
+    height: 25px;
+    vertical-align: -7px;
+}
+
+.copy-password-btn {
+    justify-self: center;
+    margin-top: 1.5em;
+    padding: 0.8rem 1.1em;
+    border-radius: 33px;
+    border: none;
+
+    font-family: 'Work Sans', sans-serif;
+    font-size: large;
+    background-color: #48BB78;
+    transition: all 0.3s ease-in-out;
+    color: white;
+}
+
+.copy-password-btn:hover {
+    background-color: #3a9962;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    /* border: dashed red; */
+    background-color: #48BB78;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 1em;
+}
+
+span, span a {
+    color: white;
+}
+
+span {
+    color: white;
+    padding: 1.5em;
+}

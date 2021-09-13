@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PassGen</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header>
+        <img href="#" class="logo" src="../images/passgen-logo.png">
+    </header>
+    <div class="page-container">
+        <div class="content">
+            <div class="header-and-description">
+                <h1 class="header-subtitle">Password generation tool</h1>
+                <h1 class="header-title">Generate a safe password</h1>
+                <p class="header-description">Adjust the settings below to quickly create a safe and random password.</p>
+            </div>
+
+            <div class="password-form-wrapper">
+                <form action="" class="password-result">
+                    <input type="text" class="password-result-input">
+                </form>
+                <div class="password-form-icons">
+                    <button class="copy-btn"><img src="../images/copy-btn.svg" alt="copy"></button>
+                    <button class="generate-btn"><img src="../images/generate-btn.svg" alt="generate"></button>
+                </div>
+            </div>
+
+            <div class="customize-password-wrapper">
+                <div class="customize-title-wrapper"> <!-- to make the underline -->
+                    <p class="customize-title">Customize your password</p>
+                </div>
+
+                <div class="password-settings-wrapper">            
+                    <!-- Length -->
+                    <div class="length-wrapper">
+                        <p class="length-title">Length</p>
+                        <div class="length-controls">
+                            <input type="text" class="length-input">
+                            <input type="range" class="length-slider" min="1" max="32">
+                        </div>
+                    </div>
+
+                    <div class="non-text-inputs-wrapper">
+                        <!-- Radios -->
+                        <div class="radio-wrapper">
+                            <div class="radios">
+                                <label>
+                                    <input type="radio">
+                                    </input>
+                                    Easy to say
+                                </label>
+                            </div>
+                            <div class="radios">
+                                <label>
+                                    <input type="radio">
+                                    </input>
+                                    Easy to read
+                                </label>
+                            </div>
+                            <div class="radios">
+                                <label>
+                                    <input type="radio">
+                                    </input>
+                                    All characters
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Checkboxes -->
+                        <div class="checkboxes-wrapper">
+                            <div class="checkboxes">
+                                <label>
+                                    <input type="checkbox">
+                                    </input>
+                                    Uppercase
+                                </label>
+                            </div>
+                            <div class="checkboxes">
+                                <label>
+                                    <input type="checkbox">
+                                    </input>
+                                    Lowercase
+                                </label>
+                            </div>
+                            <div class="checkboxes">
+                                <label>
+                                    <input type="checkbox">
+                                    </input>
+                                    Numbers
+                                </label>
+                            </div>
+                            <div class="checkboxes">
+                                <label>
+                                    <input type="checkbox">
+                                    </input>
+                                    Symbols
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="copy-password-btn">
+                Copy password
+            </button>
+        </div>
+        <footer>
+            <span>
+                made with ❤ by <<a target="_blank" href="https://www.linkedin.com/in/manuel-fideles/">me</a>>
+            </span>
+        </footer>
+    </div>
+</body>
+</html>
