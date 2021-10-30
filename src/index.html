@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PassGen</title>
     <link rel="stylesheet" href="main.css">
+    <script src="index.js"></script>
 </head>
+
 <body>
     <header>
         <img href="#" class="logo" src="../images/passgen-logo.png">
@@ -16,7 +18,8 @@
             <div class="header-and-description">
                 <h1 class="header-subtitle">Password generation tool</h1>
                 <h1 class="header-title">Generate a safe password</h1>
-                <p class="header-description">Adjust the settings below to quickly create a safe and random password.</p>
+                <p class="header-description">Adjust the settings below to quickly create a safe and random password.
+                </p>
             </div>
 
             <div class="password-form-wrapper">
@@ -30,17 +33,20 @@
             </div>
 
             <div class="customize-password-wrapper">
-                <div class="customize-title-wrapper"> <!-- to make the underline -->
+                <div class="customize-title-wrapper">
+                    <!-- to make the underline -->
                     <p class="customize-title">Customize your password</p>
                 </div>
 
-                <div class="password-settings-wrapper">            
+                <div class="password-settings-wrapper">
                     <!-- Length -->
                     <div class="length-wrapper">
                         <p class="length-title">Length</p>
                         <div class="length-controls">
-                            <input type="text" class="length-input">
-                            <input type="range" class="length-slider" min="1" max="32">
+                            <input type="number" class="length-input" value="25" min="1" max="50" id="rangenumber"
+                                oninput="range.value=value">
+                            <input type="range" value="25" min="1" max="50" id="range"
+                                oninput="rangenumber.value=value">
                         </div>
                     </div>
 
@@ -115,4 +121,5 @@
         </footer>
     </div>
 </body>
+
 </html>
