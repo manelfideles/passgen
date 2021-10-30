@@ -46,6 +46,17 @@ input[type="range"]::-webkit-slider-thumb {
     border-radius: 50px;
     border: 0;
     cursor: grab;
+    transition: all 0.2s ease-in-out;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    background: #46b976;
+    box-shadow: 0 0 7px #46b976;
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+    background: #399660;
+    box-shadow: none;
 }
 
 input[type="range"]::-webkit-slider-runnable-track {
@@ -134,13 +145,26 @@ header {
 
 .password-form-icons {
     border: none;
-    padding-top: 0.2rem;
+    padding-top: 0.4rem;
 }
 
 .copy-btn, .generate-btn {
     background: none;
     border: none;
     transform: scale(0.85);
+    stroke: #718096;
+    stroke-width: 2px;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    transition: all 0.2s ease-in-out;
+}
+
+.generate-btn {
+    transform: scale(1);
+}
+
+.copy-btn:hover, .generate-btn:hover {
+    stroke: #48bb78;
 }
 
 .customize-title-wrapper {
@@ -204,9 +228,10 @@ label {
 
 input[type="radio"], input[type="checkbox"] {
     /* border: solid black; */
-    width: 25px;
-    height: 25px;
-    vertical-align: -7px;
+    width: 1.75rem;
+    height: 1.75rem;
+    vertical-align: -0.70em;
+    accent-color: #3a9962;
 }
 
 .copy-password-btn {

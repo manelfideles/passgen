@@ -1,7 +1,6 @@
 // Range Slider
 function handleInputChange(e) {
     let target = e.target;
-    console.log(target);
     if (e.target.type !== 'range') {
         target = document.getElementById('range');
     }
