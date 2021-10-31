@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PassGen</title>
+    <link rel="shortcut icon" href="../images/favicon.ico" />
     <link rel="stylesheet" href="main.css">
     <script src="index.js"></script>
 </head>
@@ -24,7 +25,7 @@
 
             <div class="password-form-wrapper">
                 <form action="" class="password-result">
-                    <input type="text" class="password-result-input">
+                    <input type="text" id="password-result" class="password-result-input">
                 </form>
                 <div class="password-form-icons">
                     <button class="copy-btn">
@@ -57,9 +58,9 @@
                     <div class="length-wrapper">
                         <p class="length-title">Length</p>
                         <div class="length-controls">
-                            <input type="number" class="length-input" value="25" min="1" max="50" id="rangenumber"
+                            <input type="number" class="length-input" value="12" min="1" max="50" id="rangenumber"
                                 oninput="range.value=value">
-                            <input type="range" value="25" min="1" max="50" id="range"
+                            <input type="range" value="12" min="1" max="50" id="range"
                                 oninput="rangenumber.value=value">
                         </div>
                     </div>
@@ -69,19 +70,19 @@
                         <div class="radio-wrapper">
                             <div class="radios">
                                 <label>
-                                    <input type="radio"></input>
+                                    <input type="radio" id="easy-to-say" name="encryption-style"></input>
                                     Easy to say
                                 </label>
                             </div>
                             <div class="radios">
                                 <label>
-                                    <input type="radio"></input>
+                                    <input type="radio" id="easy-to-read" name="encryption-style"></input>
                                     Easy to read
                                 </label>
                             </div>
                             <div class="radios">
                                 <label>
-                                    <input type="radio"></input>
+                                    <input type="radio" id="all-chars" name="encryption-style" checked=""></input>
                                     All characters
                                 </label>
                             </div>
@@ -91,25 +92,25 @@
                         <div class="checkboxes-wrapper">
                             <div class="checkboxes">
                                 <label>
-                                    <input type="checkbox"></input>
+                                    <input type="checkbox" id="uppercase" checked=""></input>
                                     Uppercase
                                 </label>
                             </div>
                             <div class="checkboxes">
                                 <label>
-                                    <input type="checkbox"></input>
+                                    <input type="checkbox" id="lowercase" checked=""></input>
                                     Lowercase
                                 </label>
                             </div>
                             <div class="checkboxes">
                                 <label>
-                                    <input type="checkbox"></input>
+                                    <input type="checkbox" id="numbers" checked=""></input>
                                     Numbers
                                 </label>
                             </div>
                             <div class="checkboxes">
                                 <label>
-                                    <input type="checkbox"></input>
+                                    <input type="checkbox" id="symbols" checked=""></input>
                                     Symbols
                                 </label>
                             </div>

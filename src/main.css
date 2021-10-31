@@ -8,9 +8,9 @@ body {
 }
 
 .page-container {
+    /* border: dashed; */
     position: relative;
     min-height: 100vh;
-    /* border: dashed; */
 }
 
 .header-title, .customize-title, .header-subtitle {
@@ -29,11 +29,11 @@ button, input[type="radio"], input[type="checkbox"] {
 
 input[type="range"] {
     -webkit-appearance: none;
-    width: 65%;
+    width: 67.5%;
     background: rgba(186, 189, 194, 0.3);
     border-radius: 50px;
     background-image: linear-gradient(#48bb78, #48bb78);
-    background-size: 50% 100%;
+    background-size: 25% 100%;
     background-repeat: no-repeat;
 }
 
@@ -46,12 +46,12 @@ input[type="range"]::-webkit-slider-thumb {
     border-radius: 50px;
     border: 0;
     cursor: grab;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.25s ease-in-out;
 }
 
 input[type="range"]::-webkit-slider-thumb:hover {
-    background: #46b976;
-    box-shadow: 0 0 7px #46b976;
+    background: #4bc57e;
+    box-shadow: 0 0 5px #4bc57e;
 }
 
 input[type="range"]::-webkit-slider-thumb:active {
@@ -87,7 +87,7 @@ header {
     display: grid;
     min-width: 25em;
     margin: 2.75em 0.5em;
-    align-items: center;
+    justify-content: center;
 }
 
 .header-and-description {
@@ -220,6 +220,7 @@ header {
 
 .checkboxes {
     margin-bottom: 0.75em;
+    /* margin-left: 5vh; */
 }
 
 label {
@@ -237,12 +238,13 @@ input[type="radio"], input[type="checkbox"] {
 .copy-password-btn {
     justify-self: center;
     margin-top: 1.5em;
-    padding: 0.8rem 1.1em;
+    padding: 1rem 1.2em;
     border-radius: 33px;
     border: none;
+    /* height: 4rem; */
 
     font-family: 'Work Sans', sans-serif;
-    font-size: large;
+    font-size: larger;
     background-color: #48BB78;
     transition: all 0.3s ease-in-out;
     color: white;
