@@ -29,6 +29,7 @@ button, input[type="radio"], input[type="checkbox"] {
 
 ::-webkit-scrollbar {
     width: 2em;
+    scrollbar-width: thin;
 }
 
 ::-webkit-scrollbar-track {
@@ -36,10 +37,19 @@ button, input[type="radio"], input[type="checkbox"] {
     margin-block: .1em;
 }
 
+::selection {
+    color: white;
+    background: #48bb78;
+}
+
 ::-webkit-scrollbar-thumb {
     background: #40a76b;
     border-radius: 100vw;
     border: 0.65em solid rgb(253, 253, 253);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #3a9962;
 }
 
 input[type="range"] {
@@ -93,8 +103,8 @@ header {
 
 .logo {
     /* border: solid; */
-    width: 5%;
-    margin: 0.5em 0;
+    max-width: 2em;
+    margin: 2em 0 0.2em 0;
 }
 
 .content {
