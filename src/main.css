@@ -27,6 +27,21 @@ button, input[type="radio"], input[type="checkbox"] {
     cursor: pointer;
 }
 
+::-webkit-scrollbar {
+    width: 2em;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 100vw;
+    margin-block: .1em;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #40a76b;
+    border-radius: 100vw;
+    border: 0.65em solid rgb(253, 253, 253);
+}
+
 input[type="range"] {
     -webkit-appearance: none;
     width: 67.5%;
@@ -262,17 +277,21 @@ footer {
     align-items: center;
     justify-items: center;
     /* border: dashed red; */
-    background-color: #48BB78;
+    /* background-color: #48BB78; */
 
     font-family: 'Inter', sans-serif;
     font-size: 1em;
 }
 
 span, span a {
-    color: white;
+    color: #2D3748;
+}
+
+span a:hover {
+    color: #48BB78
 }
 
 span {
-    color: white;
+    color: #2D3748;
     padding: 1.5em;
 }
