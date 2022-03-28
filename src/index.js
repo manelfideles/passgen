@@ -5,6 +5,21 @@ const possibleCb = {
     'symbols': "\!#$%&/()=?<>^*@£§{[]}",
 };
 
+// Password strength
+// based on shannon entropy
+// https://gist.github.com/jabney/5018b4adc9b2bf488696?permalink_comment_id=3089875#gistcomment-3089875
+function entropy(str) {
+    const len = str.length
+
+    // Build a frequency map from the string.
+    const frequencies = Array.from(str)
+        .reduce((freq, c) => (freq[c] = (freq[c] || 0) + 1) && freq, {})
+
+    // Sum the frequency of each character.
+    return Object.values(frequencies)
+        .reduce((sum, f) => sum - f / len * Math.log2(f / len), 0)
+}
+
 // Reads from inputState and outputs a 
 // string of possible chars
 function getPossibleString() {
@@ -27,6 +42,7 @@ function generatePassword(length) {
         result += possible.charAt(
             Math.floor(Math.random() * possible.length));
     }
+    console.log(entropy(result));
     return result;
 }
 
@@ -52,7 +68,7 @@ function handleCheckboxInput(inputState) {
         inputState[ev.target.id] ?
             inputState[ev.target.id] = false :
             inputState[ev.target.id] = true;
-        console.log(inputState);
+
         // update text value inside text box
         const len = document.getElementById('range').value;
         document.getElementById("password-result").value = generatePassword(len);
@@ -67,6 +83,8 @@ function handleRadioInput(radioInputState, cbInputState) {
         radioInputState[ev.target.id] = true;
         let numbers = document.getElementById('numbers');
         let symbols = document.getElementById('symbols');
+        let lowercase = document.getElementById('lowercase');
+        let uppercase = document.getElementById('uppercase');
         if (ev.target.id == 'easy-to-say') {
             numbers.checked = false;
             symbols.checked = false;
@@ -75,12 +93,18 @@ function handleRadioInput(radioInputState, cbInputState) {
             cbInputState['numbers'] = false;
             cbInputState['symbols'] = false;
         }
+        else if (ev.target.id == 'all-chars') {
+            document.getElementById('numbers').disabled = false;
+            document.getElementById('symbols').disabled = false;
+            numbers.checked = true;
+            symbols.checked = true;
+            lowercase.checked = true;
+            uppercase.checked = true;
+        }
         else {
             document.getElementById('numbers').disabled = false;
             document.getElementById('symbols').disabled = false;
         }
-        // console.log(radioInputState);
-        // console.log(cbInputState);
         const len = document.getElementById('range').value;
         document.getElementById("password-result").value = generatePassword(len);
     }
@@ -101,6 +125,26 @@ document.addEventListener("DOMContentLoaded", () => {
     // generate pw as soon as page loads
     let len = document.getElementById("rangenumber").value;
     document.getElementById("password-result").value = generatePassword(len);
+
+    // Assign listeners to btns
+    let regenBtn = document.getElementById('generate-btn');
+    regenBtn.addEventListener('click', () => {
+        document.getElementById("password-result").value = generatePassword(
+            document.getElementById("password-result").value.length
+        );
+    });
+    let copyBtn = document.getElementById('copy-btn');
+    copyBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(
+            document.getElementById("password-result").value
+        );
+    })
+    let copyBtn2 = document.getElementById('copy-password-btn');
+    copyBtn2.addEventListener('click', () => {
+        navigator.clipboard.writeText(
+            document.getElementById("password-result").value
+        );
+    })
 
     // Assign listener to range input
     const rangeInput = document.querySelector('input[type="range"]');

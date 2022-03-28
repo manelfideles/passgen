@@ -8,7 +8,6 @@ body {
 }
 
 .page-container {
-    /* border: dashed; */
     position: relative;
     min-height: 100vh;
 }
@@ -25,6 +24,10 @@ body {
 
 button, input[type="radio"], input[type="checkbox"] {
     cursor: pointer;
+}
+
+input[type="checkbox"]:disabled {
+    cursor: auto;
 }
 
 ::-webkit-scrollbar {
