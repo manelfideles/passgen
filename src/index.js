@@ -1,25 +1,31 @@
-// obtains constraints for password generation
-function getPasswordParams(cbState, rbState, length) {
-    const possibleCb = {
-        uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-        lowercase: "abcdefghijklmnopqrstuvxyz",
-        numbers: "0123456789",
-        symbols: "\!#$%&/()=?<>^*@£§{[]}",
-    };
-    const possibleRadios = {
-        "easy-to-say": '',
-        "easy-to-read": '',
-        "all-chars": ''
-    };
+const possibleCb = {
+    'uppercase': "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    'lowercase': "abcdefghijklmnopqrstuvxyz",
+    'numbers': "0123456789",
+    'symbols': "\!#$%&/()=?<>^*@£§{[]}",
+};
+
+// Reads from inputState and outputs a 
+// string of possible chars
+function getPossibleString() {
+    // iterates over input state object for radio + cb
+    // if true, adds to possible string
+    let possible = '';
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    Object.entries(getInputState(checkboxes)).forEach(
+        cb => { if (cb[1]) possible += possibleCb[cb[0]] }
+    );
+    return possible;
 }
 
 // Generate random string with constraints
-function generatePassword(params, length) {
+function generatePassword(length) {
     var result = '';
-    const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" // temp
+    const possible = getPossibleString();
+
     for (let i = 0; i < length; i++) {
-        result += uppercase.charAt(
-            Math.floor(Math.random() * uppercase.length));
+        result += possible.charAt(
+            Math.floor(Math.random() * possible.length));
     }
     return result;
 }
@@ -35,12 +41,8 @@ function handleRangeInput(e) {
     const len = target.value;
     target.style.backgroundSize = (len - min) * 100 / (max - min) + '% 100%';
 
-    // get password and write on page
-    //let pw = generatePassword(getPasswordParams(cbState, rbState), len);
-
-    let pw = generatePassword(null, len);
-    output = document.getElementById("password-result");
-    output.value = pw;
+    // update text value inside text box
+    document.getElementById("password-result").value = generatePassword(len)
 }
 
 // Returns constraints according to
@@ -51,16 +53,36 @@ function handleCheckboxInput(inputState) {
             inputState[ev.target.id] = false :
             inputState[ev.target.id] = true;
         console.log(inputState);
+        // update text value inside text box
+        const len = document.getElementById('range').value;
+        document.getElementById("password-result").value = generatePassword(len);
     }
 }
 
-function handleRadioInput(inputState) {
+function handleRadioInput(radioInputState, cbInputState) {
     return ev => {
-        Object.keys(inputState).forEach(
-            radiobtn => { inputState[radiobtn] = false; }
+        Object.keys(radioInputState).forEach(
+            radiobtn => { radioInputState[radiobtn] = false; }
         );
-        inputState[ev.target.id] = true;
-        console.log(inputState);
+        radioInputState[ev.target.id] = true;
+        let numbers = document.getElementById('numbers');
+        let symbols = document.getElementById('symbols');
+        if (ev.target.id == 'easy-to-say') {
+            numbers.checked = false;
+            symbols.checked = false;
+            numbers.disabled = true;
+            symbols.disabled = true;
+            cbInputState['numbers'] = false;
+            cbInputState['symbols'] = false;
+        }
+        else {
+            document.getElementById('numbers').disabled = false;
+            document.getElementById('symbols').disabled = false;
+        }
+        // console.log(radioInputState);
+        // console.log(cbInputState);
+        const len = document.getElementById('range').value;
+        document.getElementById("password-result").value = generatePassword(len);
     }
 }
 
@@ -77,10 +99,8 @@ function getInputState(inputs) {
 document.addEventListener("DOMContentLoaded", () => {
 
     // generate pw as soon as page loads
-    /* let pw = generatePassword(getPasswordParams(cbState, rbState), len); */
     let len = document.getElementById("rangenumber").value;
-    // get password and write on input field
-    document.getElementById("password-result").value = generatePassword(null, len);
+    document.getElementById("password-result").value = generatePassword(len);
 
     // Assign listener to range input
     const rangeInput = document.querySelector('input[type="range"]');
@@ -103,12 +123,9 @@ document.addEventListener("DOMContentLoaded", () => {
     radios.forEach(elem => {
         elem.addEventListener(
             'input',
-            handleRadioInput(radioState)
+            handleRadioInput(radioState, checkboxState)
         );
     });
-
-
-    // generatePassword([checkboxState, radioState], textInput.value);
 })
 
 
