@@ -280,14 +280,9 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
     display: grid;
     align-items: center;
     justify-items: center;
-    /* border: dashed red; */
-    /* background-color: #48BB78; */
 
     font-family: 'Inter', sans-serif;
     font-size: 1em;
