@@ -1,0 +1,5 @@
+[] Visual feedback on entropy-based password strength
+[] Visual feedback on copied password
+[] Add 'i' tooltips
+[] On hover interactions with tooltips
+[] CI/CD
