@@ -1,6 +1,5 @@
 services:
   web:
     build: .
-    ports:
-      - "80:80"
+    network_mode: "host"
     restart: unless-stopped
